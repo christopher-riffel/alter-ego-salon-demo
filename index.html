@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alter Ego Salon & Spa | Emmaus, PA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f7f3ee;
+      --warm-white: #fdfaf7;
+      --sage: #8a9e8c;
+      --dark-sage: #5c7060;
+      --charcoal: #2a2a2a;
+      --muted: #888;
+      --gold: #b89b6e;
+      --light-gold: #d4bc96;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--warm-white);
+      color: var(--charcoal);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4rem 3rem;
+      background: rgba(253,250,247,0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(184,155,110,0.2);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      text-decoration: none;
+      line-height: 1.2;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      transition: color 0.3s;
+      font-weight: 400;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-book {
+      background: var(--charcoal);
+      color: var(--cream) !important;
+      padding: 0.6rem 1.4rem !important;
+      letter-spacing: 0.15em !important;
+      transition: background 0.3s !important;
+    }
+    .nav-book:hover { background: var(--gold) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 72px;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 4rem 5rem 5rem;
+      position: relative;
+    }
+
+    .hero-left::after {
+      content: '';
+      position: absolute;
+      top: 10%; left: 2rem;
+      width: 1px; height: 60%;
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    }
+
+    .hero-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5vw, 5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em { font-style: italic; color: var(--dark-sage); }
+
+    .hero-sub {
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 360px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta { display: flex; gap: 1rem; align-items: center; }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--charcoal);
+      color: var(--cream);
+      padding: 0.9rem 2.2rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--gold); transform: translateY(-1px); }
+
+    .btn-secondary {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 2px;
+      transition: color 0.3s;
+    }
+    .btn-secondary:hover { color: var(--charcoal); }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+      background: var(--sage);
+    }
+
+    .hero-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      display: block;
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: 2.5rem; left: 2rem;
+      background: rgba(253,250,247,0.95);
+      padding: 1.2rem 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .badge-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; }
+
+    .badge-text { font-size: 0.7rem; line-height: 1.5; }
+    .badge-text strong { display: block; font-weight: 500; font-size: 0.8rem; }
+
+    /* ── MARQUEE ── */
+    .marquee-strip {
+      background: var(--charcoal);
+      color: var(--cream);
+      padding: 0.9rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-inner {
+      display: inline-block;
+      animation: marquee 30s linear infinite;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    .marquee-inner span { margin: 0 2rem; }
+    .marquee-inner .dot { color: var(--gold); }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 5rem; }
+
+    .section-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── SERVICES ── */
+    .services { background: var(--cream); }
+
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3.5rem;
+    }
+
+    .services-categories { display: flex; flex-direction: column; gap: 3rem; }
+
+    .service-category-title {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid rgba(184,155,110,0.3);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(184,155,110,0.15);
+    }
+
+    .service-card {
+      background: var(--warm-white);
+      padding: 2rem 1.8rem;
+      transition: background 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--gold);
+      transition: width 0.4s ease;
+    }
+
+    .service-card:hover::before { width: 100%; }
+    .service-card:hover { background: var(--cream); }
+
+    .service-icon { font-size: 1.3rem; margin-bottom: 0.8rem; }
+
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .service-price {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── TEAM ── */
+    .team { background: var(--warm-white); }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .team-card {
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .team-card:hover { transform: translateY(-4px); }
+
+    .team-avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--warm-white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar-jl { background: linear-gradient(135deg, #5c7060, #8a9e8c); }
+    .avatar-f  { background: linear-gradient(135deg, #b89b6e, #d4bc96); }
+    .avatar-kb { background: linear-gradient(135deg, #7a8fa0, #a0b4c4); }
+    .avatar-ss { background: linear-gradient(135deg, #a08090, #c4a0b4); }
+
+    .avatar-ring {
+      position: absolute;
+      inset: 6px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .team-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-bottom: 0.3rem;
+    }
+
+    .team-role {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .team-bio {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 220px;
+      margin: 0 auto 1.2rem;
+    }
+
+    .team-book {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 2px;
+      transition: color 0.3s;
+    }
+    .team-book:hover { color: var(--gold); }
+
+    /* ── ABOUT ── */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      padding: 6rem 5rem;
+      background: var(--cream);
+    }
+
+    .about-img-wrap { position: relative; }
+
+    .about-img-bg {
+      position: absolute;
+      top: -1.5rem; left: -1.5rem;
+      right: 1.5rem; bottom: 1.5rem;
+      background: var(--sage);
+      opacity: 0.25;
+    }
+
+    .about-img {
+      width: 100%; height: 420px;
+      object-fit: cover;
+      position: relative;
+      z-index: 1;
+      display: block;
+    }
+
+    .about-content p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(184,155,110,0.25);
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.4rem;
+    }
+
+    /* ── REVIEWS ── */
+    .reviews {
+      background: var(--charcoal);
+      color: var(--cream);
+      padding: 6rem 5rem;
+    }
+
+    .reviews .section-title { color: var(--cream); }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .review-card {
+      border: 1px solid rgba(184,155,110,0.25);
+      padding: 2rem;
+      position: relative;
+    }
+
+    .review-card::before {
+      content: '"';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      color: var(--gold);
+      opacity: 0.3;
+      position: absolute;
+      top: -0.5rem; left: 1.2rem;
+      line-height: 1;
+    }
+
+    .review-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-style: italic;
+      line-height: 1.8;
+      color: rgba(247,243,238,0.85);
+      margin-bottom: 1.5rem;
+    }
+
+    .review-author {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--light-gold);
+    }
+
+    .review-stars {
+      color: var(--gold);
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      margin-bottom: 1rem;
+    }
+
+    /* ── BOOKING ── */
+    .booking {
+      background: var(--cream);
+      text-align: center;
+      padding: 7rem 5rem;
+    }
+
+    .booking .section-title {
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      max-width: 600px;
+      margin: 1rem auto 1.5rem;
+    }
+
+    .booking-sub {
+      font-size: 0.88rem;
+      color: var(--muted);
+      max-width: 420px;
+      margin: 0 auto 3rem;
+      line-height: 1.8;
+    }
+
+    .booking-options {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .booking-divider {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .booking-address {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--charcoal);
+      color: rgba(247,243,238,0.6);
+      padding: 3rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cream);
+      line-height: 1.4;
+    }
+
+    .footer-info {
+      font-size: 0.75rem;
+      line-height: 1.9;
+      text-align: center;
+    }
+
+    .footer-info a { color: var(--light-gold); text-decoration: none; }
+    .footer-info a:hover { color: var(--cream); }
+
+    .footer-right { text-align: right; }
+
+    .footer-hours {
+      font-size: 0.72rem;
+      line-height: 1.9;
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: flex-end;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--light-gold);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .social-link:hover { color: var(--cream); }
+
+    .social-icon {
+      width: 28px; height: 28px;
+      border: 1px solid rgba(212,188,150,0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    .social-link:hover .social-icon {
+      border-color: var(--gold);
+      background: rgba(184,155,110,0.15);
+    }
+
+    .footer-copy {
+      font-size: 0.62rem;
+      opacity: 0.4;
+      margin-top: 0.5rem;
+      text-align: right;
+    }
+
+    /* ── FADE IN ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { height: 50vh; }
+      .hero-left { padding: 3rem 2rem; }
+      section { padding: 4rem 2rem; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .about { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 2rem; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .reviews { padding: 4rem 2rem; }
+      .booking { padding: 5rem 2rem; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      footer { grid-template-columns: 1fr; text-align: center; padding: 2.5rem 2rem; }
+      .footer-right { text-align: center; }
+      .footer-social { justify-content: center; }
+      .footer-copy { text-align: center; }
+    }
+
+    @media (max-width: 500px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .team-avatar { width: 100px; height: 100px; font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Alter Ego<br><span style="font-size:0.7em;letter-spacing:0.3em;font-style:italic;font-weight:300;">Salon & Spa</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="https://www.vagaro.com/alterego1" target="_blank" class="nav-book">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding:0;">
+  <div class="hero-left">
+    <p class="hero-eyebrow">500 Broad St · Emmaus, Pennsylvania</p>
+    <h1 class="hero-title">Your hair.<br><em>Reimagined.</em></h1>
+    <p class="hero-sub">A full-service salon and day spa in the heart of Emmaus — where every visit is personal, every style is intentional.</p>
+    <div class="hero-cta">
+      <a href="https://www.vagaro.com/alterego1" target="_blank" class="btn-primary">Book an Appointment</a>
+      <a href="#services" class="btn-secondary">View Services</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=900&q=80" alt="Alter Ego Salon" class="hero-img"/>
+    <div class="hero-badge">
+      <div class="badge-stars">★★★★★</div>
+      <div class="badge-text">
+        <strong>5.0 Rating</strong>
+        Trusted by Emmaus & the Lehigh Valley
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span>Haircuts</span><span class="dot">✦</span>
+    <span>Color & Balayage</span><span class="dot">✦</span>
+    <span>Highlights</span><span class="dot">✦</span>
+    <span>Perms</span><span class="dot">✦</span>
+    <span>Updos & Styling</span><span class="dot">✦</span>
+    <span>Facials</span><span class="dot">✦</span>
+    <span>Lash Lifting</span><span class="dot">✦</span>
+    <span>Brow Lamination</span><span class="dot">✦</span>
+    <span>Nail Services</span><span class="dot">✦</span>
+    <span>Waxing</span><span class="dot">✦</span>
+    <span>Bridal Services</span><span class="dot">✦</span>
+    <!-- duplicate -->
+    <span>Haircuts</span><span class="dot">✦</span>
+    <span>Color & Balayage</span><span class="dot">✦</span>
+    <span>Highlights</span><span class="dot">✦</span>
+    <span>Perms</span><span class="dot">✦</span>
+    <span>Updos & Styling</span><span class="dot">✦</span>
+    <span>Facials</span><span class="dot">✦</span>
+    <span>Lash Lifting</span><span class="dot">✦</span>
+    <span>Brow Lamination</span><span class="dot">✦</span>
+    <span>Nail Services</span><span class="dot">✦</span>
+    <span>Waxing</span><span class="dot">✦</span>
+    <span>Bridal Services</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header fade-in">
+    <div>
+      <p class="section-eyebrow">What We Offer</p>
+      <h2 class="section-title">Our Services</h2>
+    </div>
+    <a href="https://www.vagaro.com/alterego1" target="_blank" class="btn-primary">Book Now</a>
+  </div>
+
+  <div class="services-categories">
+
+    <div class="fade-in">
+      <p class="service-category-title">Hair Services</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">✂</div>
+          <h3 class="service-name">Haircuts & Styling</h3>
+          <p class="service-desc">Precision cuts for all hair types — women's, men's, and children's. Finished with a blow-dry and style.</p>
+          <p class="service-price">Starting at $35</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">◐</div>
+          <h3 class="service-name">Color & Balayage</h3>
+          <p class="service-desc">Custom color, root touch-ups, balayage, and full color transformations tailored to your hair and goals.</p>
+          <p class="service-price">Starting at $75</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✦</div>
+          <h3 class="service-name">Highlights</h3>
+          <p class="service-desc">Foil highlights, partial and full — adding dimension, brightness, and movement to your look.</p>
+          <p class="service-price">Starting at $80</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">◌</div>
+          <h3 class="service-name">Perms</h3>
+          <p class="service-desc">Classic and modern perms for lasting curl, wave, and volume. Great for adding texture to fine or straight hair.</p>
+          <p class="service-price">Starting at $90</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">❧</div>
+          <h3 class="service-name">Updos & Bridal</h3>
+          <p class="service-desc">Special occasion styling, bridal hair, and full bridal party packages for your most important moments.</p>
+          <p class="service-price">Custom Quote</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="fade-in">
+      <p class="service-category-title">Skin & Lash Services</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">◯</div>
+          <h3 class="service-name">Facials</h3>
+          <p class="service-desc">Customized facials including bridal facials, acne treatments, hydrating treatments, and face lifting massage.</p>
+          <p class="service-price">Starting at $65</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">—</div>
+          <h3 class="service-name">Lash Lifting & Tinting</h3>
+          <p class="service-desc">A semi-permanent curl and tint that gives your natural lashes a lifted, lengthened, and defined look.</p>
+          <p class="service-price">Starting at $75</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">∧</div>
+          <h3 class="service-name">Eyebrow Tinting & Lamination</h3>
+          <p class="service-desc">Brow lamination for a sleek, full, and groomed look — paired with tinting for shape and definition.</p>
+          <p class="service-price">Starting at $55</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">◇</div>
+          <h3 class="service-name">Waxing</h3>
+          <p class="service-desc">Full body and face waxing services for men and women — smooth, precise, and gentle on sensitive skin.</p>
+          <p class="service-price">Starting at $15</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="fade-in">
+      <p class="service-category-title">Nail Services</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">◈</div>
+          <h3 class="service-name">Manicures</h3>
+          <p class="service-desc">Classic and gel manicures with meticulous attention to shape, cuticles, and a flawless finish.</p>
+          <p class="service-price">Starting at $30</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">◉</div>
+          <h3 class="service-name">Pedicures</h3>
+          <p class="service-desc">Relaxing pedicures with exfoliation, massage, and your choice of polish or gel finish.</p>
+          <p class="service-price">Starting at $45</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="fade-in" style="text-align:center;margin-bottom:0.5rem;">
+    <p class="section-eyebrow">The People Behind the Work</p>
+    <h2 class="section-title">Meet Our Team</h2>
+  </div>
+  <div class="team-grid">
+
+    <div class="team-card fade-in">
+      <div class="team-avatar avatar-jl">
+        <div class="avatar-ring"></div>
+        JL
+      </div>
+      <h3 class="team-name">Jessica Lang</h3>
+      <p class="team-role">Owner & Lead Stylist</p>
+      <p class="team-bio">A licensed stylist with 16+ years of experience, Jessica opened Alter Ego to bring a warm, personalized salon experience to Emmaus. Specializing in cuts, color, perms, and updos.</p>
+      <a href="https://www.vagaro.com/alterego1" target="_blank" class="team-book">Book with Jessica</a>
+    </div>
+
+    <div class="team-card fade-in">
+      <div class="team-avatar avatar-f">
+        <div class="avatar-ring"></div>
+        F
+      </div>
+      <h3 class="team-name">Farah</h3>
+      <p class="team-role">Holistic Esthetician</p>
+      <p class="team-bio">A holistic licensed esthetician passionate about natural beauty and healthy skin. Farah specializes in facials, waxing, lash lifting, eyebrow lamination, bridal facials, and acne treatments.</p>
+      <a href="https://www.vagaro.com/alterego1" target="_blank" class="team-book">Book with Farah</a>
+    </div>
+
+    <div class="team-card fade-in">
+      <div class="team-avatar avatar-kb">
+        <div class="avatar-ring"></div>
+        KB
+      </div>
+      <h3 class="team-name">Kaleigh Beers</h3>
+      <p class="team-role">Color Specialist</p>
+      <p class="team-bio">Known as KB, Kaleigh is dedicated to blondes, highlights, and all aspects of hair color. She takes pride in overcoming any hair challenge and creating transformations her clients love.</p>
+      <a href="https://www.vagaro.com/alterego1" target="_blank" class="team-book">Book with Kaleigh</a>
+    </div>
+
+    <div class="team-card fade-in">
+      <div class="team-avatar avatar-ss">
+        <div class="avatar-ring"></div>
+        SS
+      </div>
+      <h3 class="team-name">Sally Smith</h3>
+      <p class="team-role">Nail Technician</p>
+      <p class="team-bio">Sally brings warmth and precision to every nail service. Specializing in manicures, pedicures, and gel finishes — she makes sure every client leaves feeling polished and pampered.</p>
+      <a href="https://www.vagaro.com/alterego1" target="_blank" class="team-book">Book with Sally</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div class="about" id="about">
+  <div class="about-img-wrap fade-in">
+    <div class="about-img-bg"></div>
+    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80" alt="Inside Alter Ego Salon" class="about-img"/>
+  </div>
+  <div class="about-content fade-in">
+    <p class="section-eyebrow">Our Story</p>
+    <h2 class="section-title">Built on Trust<br><em style="font-family:'Cormorant Garamond',serif;">& Craft</em></h2>
+    <p>Founded by Jessica Lang — a stylist with over 16 years of experience — Alter Ego Salon & Spa opened its doors on Broad Street in Emmaus to bring something the Lehigh Valley was missing: a full-service salon where every client feels genuinely known.</p>
+    <p>From haircuts to facials, lash lifts to nail services, every treatment is personal. No assembly line. No rushing. Just skilled hands and real attention.</p>
+    <div class="about-stats">
+      <div>
+        <div class="stat-num">5.0</div>
+        <div class="stat-label">Star Rating</div>
+      </div>
+      <div>
+        <div class="stat-num">16<span style="font-size:1.5rem">+</span></div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="stat-num">4</div>
+        <div class="stat-label">Specialists</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <p class="section-eyebrow" style="color:var(--light-gold)">What Clients Say</p>
+  <h2 class="section-title">Real Reviews</h2>
+  <div class="reviews-grid">
+    <div class="review-card fade-in">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">I asked for highlights to blend my greys and Kim absolutely killed it. The shade she chose was perfect. I couldn't be happier — I'll be back for sure.</p>
+      <p class="review-author">— Google Review</p>
+    </div>
+    <div class="review-card fade-in">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Farah is hands down amazing. She truly cares and takes the time to talk about your skin. I always leave with amazing skin and extra knowledge. I look forward to every session.</p>
+      <p class="review-author">— Vagaro Review</p>
+    </div>
+    <div class="review-card fade-in">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">From the moment I walked in I felt welcomed and relaxed. Danielle did a caramel balayage and I absolutely love it. The whole staff is kind and attentive.</p>
+      <p class="review-author">— Google Review</p>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="book">
+  <p class="section-eyebrow">Ready to Visit?</p>
+  <h2 class="section-title fade-in">Book Your Appointment</h2>
+  <p class="booking-sub fade-in">Book online through our Vagaro page, give us a call, or stop by — walk-ins welcome based on availability.</p>
+  <div class="booking-options fade-in">
+    <a href="https://www.vagaro.com/alterego1" target="_blank" class="btn-primary" style="font-size:0.75rem;padding:1rem 2.2rem;">
+      Book Online
+    </a>
+    <span class="booking-divider">or call us</span>
+    <a href="tel:6104218585" style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;color:var(--charcoal);text-decoration:none;">(610) 421-8585</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Alter Ego<br><span style="font-size:0.75em;font-style:italic;font-weight:300;letter-spacing:0.2em;">Salon & Spa</span></div>
+  </div>
+
+  <div class="footer-info">
+    500 Broad St, Emmaus, PA 18049<br>
+    <a href="tel:6104218585">(610) 421-8585</a><br>
+    <a href="https://www.vagaro.com/alterego1" target="_blank">Book at Vagaro</a>
+  </div>
+
+  <div class="footer-right">
+    <div class="footer-hours">
+      <span style="font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--light-gold);display:block;margin-bottom:0.4rem;">Hours</span>
+      Mon: 9am – 3pm &nbsp;|&nbsp; Tue–Thu: 9am – 7pm<br>
+      Fri: 9am – 5pm &nbsp;|&nbsp; Sat: 9am – 4pm &nbsp;|&nbsp; Sun: Closed
+    </div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/alteregosalonandspa2021" target="_blank" class="social-link">
+        <span class="social-icon">&#9752;</span>
+        Instagram
+      </a>
+      <a href="https://www.facebook.com/AlterEgoSalonandDaySpa" target="_blank" class="social-link">
+        <span class="social-icon">f</span>
+        Facebook
+      </a>
+    </div>
+    <p class="footer-copy">© 2026 Alter Ego Salon & Spa · Emmaus, PA</p>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), 80 * (entry.target.dataset.delay || 0));
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach((el, i) => {
+    el.dataset.delay = i % 5;
+    observer.observe(el);
+  });
+
+  // Nav highlight on scroll
+  const sections = document.querySelectorAll('[id]');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY + 120;
+    sections.forEach(sec => {
+      if (y >= sec.offsetTop && y < sec.offsetTop + sec.offsetHeight) {
+        document.querySelectorAll('.nav-links a').forEach(a => {
+          a.style.color = '';
+          if (a.getAttribute('href') === '#' + sec.id) a.style.color = 'var(--gold)';
+        });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
